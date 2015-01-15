@@ -12,6 +12,7 @@
 #import "Epitech-swift.h"
 #import "Header.h"
 #import "UITextFieldForm.h"
+#import "DashBoardController.h"
 
 @interface ConnectionController()
 @property (nonatomic, strong) UITextFieldForm *loginTextField;
@@ -21,12 +22,17 @@
 @implementation ConnectionController
 
 - (void) makeRequestConnection {
-    NSDictionary *params = @{@"login":self.loginTextField.text, @"password":self.passwordTextField.text};
+//    NSDictionary *params = @{@"login":self.loginTextField.text, @"password":self.passwordTextField.text};
+    NSDictionary *params = @{@"login":@"robert_r", @"password":@"fl5>[dWn"};
 
     [NetworkRequest POST:LOGIN_ROUTE parameters:params
          blockCompletion:^(AFHTTPRequestOperation *operation, id responseObject) {
-             NSLog(@"JSON: %@", responseObject);
+             NSDictionary *jsonDict = (NSDictionary *) responseObject;
+             DashBoardController *dashBoardController = [[DashBoardController alloc] init];
+             dashBoardController.token = [jsonDict objectForKey:@"token"];
+             [self presentViewController:dashBoardController animated:true completion:nil];
          } andErrorCompletion:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"%@", operation.responseString);
              NSLog(@"Error: %@", error);
     }];
 }

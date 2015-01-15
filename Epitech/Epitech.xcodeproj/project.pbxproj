@@ -11,6 +11,7 @@
 		6B28BF3BE41E0A9D9C926681 /* libPods-Epitech.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D300BA068B1554B696F4380 /* libPods-Epitech.a */; };
 		AE256396017251BFE9315FFF /* libPods-EpitechTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 494BB21545C1A95E1B922763 /* libPods-EpitechTests.a */; };
 		BB5102CE1A68342D0057709E /* UITextFieldForm.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5102CD1A68342D0057709E /* UITextFieldForm.m */; };
+		BB5102D11A6837D90057709E /* DashBoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5102D01A6837D90057709E /* DashBoardController.m */; };
 		BBBE8C431A65AFA200D35180 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE8C421A65AFA200D35180 /* main.m */; };
 		BBBE8C461A65AFA200D35180 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE8C451A65AFA200D35180 /* AppDelegate.m */; };
 		BBBE8C491A65AFA200D35180 /* ConnectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE8C481A65AFA200D35180 /* ConnectionController.m */; };
@@ -42,6 +43,8 @@
 		855B2EE96B5C0A3C65571D2E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB5102CC1A68342D0057709E /* UITextFieldForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldForm.h; sourceTree = "<group>"; };
 		BB5102CD1A68342D0057709E /* UITextFieldForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldForm.m; sourceTree = "<group>"; };
+		BB5102CF1A6837D90057709E /* DashBoardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashBoardController.h; sourceTree = "<group>"; };
+		BB5102D01A6837D90057709E /* DashBoardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashBoardController.m; sourceTree = "<group>"; };
 		BBBE8C3D1A65AFA100D35180 /* Epitech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Epitech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBE8C411A65AFA100D35180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBBE8C421A65AFA200D35180 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -187,6 +190,8 @@
 			children = (
 				BBBE8C471A65AFA200D35180 /* ConnectionController.h */,
 				BBBE8C481A65AFA200D35180 /* ConnectionController.m */,
+				BB5102CF1A6837D90057709E /* DashBoardController.h */,
+				BB5102D01A6837D90057709E /* DashBoardController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -418,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB5102D11A6837D90057709E /* DashBoardController.m in Sources */,
 				BBC741FC1A65BA0D00865079 /* JVFloatLabeledTextView.m in Sources */,
 				BBBE8C491A65AFA200D35180 /* ConnectionController.m in Sources */,
 				BB5102CE1A68342D0057709E /* UITextFieldForm.m in Sources */,
