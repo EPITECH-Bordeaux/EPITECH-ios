@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2665A3B4565B0292EE4520EF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 855B2EE96B5C0A3C65571D2E /* libPods.a */; };
+		BBBE8C431A65AFA200D35180 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE8C421A65AFA200D35180 /* main.m */; };
+		BBBE8C461A65AFA200D35180 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE8C451A65AFA200D35180 /* AppDelegate.m */; };
+		BBBE8C491A65AFA200D35180 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE8C481A65AFA200D35180 /* ViewController.m */; };
+		BBBE8C4C1A65AFA200D35180 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBBE8C4A1A65AFA200D35180 /* Main.storyboard */; };
+		BBBE8C4E1A65AFA200D35180 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBBE8C4D1A65AFA200D35180 /* Images.xcassets */; };
+		BBBE8C511A65AFA200D35180 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBE8C4F1A65AFA200D35180 /* LaunchScreen.xib */; };
+		BBBE8C5D1A65AFA200D35180 /* EpitechTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE8C5C1A65AFA200D35180 /* EpitechTests.m */; };
+		BBC741F21A65B3D000865079 /* NetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC741F11A65B3D000865079 /* NetworkRequest.m */; };
+		BBC741FB1A65BA0D00865079 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC741F61A65BA0D00865079 /* JVFloatLabeledTextField.m */; };
+		BBC741FC1A65BA0D00865079 /* JVFloatLabeledTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC741F81A65BA0D00865079 /* JVFloatLabeledTextView.m */; };
+		BBC741FD1A65BA0D00865079 /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC741FA1A65BA0D00865079 /* NSString+TextDirectionality.m */; };
+		BBC742011A65BD5400865079 /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC742001A65BD5400865079 /* ZFRippleButton.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BBBE8C571A65AFA200D35180 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBBE8C351A65AFA100D35180 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBBE8C3C1A65AFA100D35180;
+			remoteInfo = Epitech;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		59D5F617334848A84EFD38E8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		855B2EE96B5C0A3C65571D2E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBBE8C3D1A65AFA100D35180 /* Epitech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Epitech.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBBE8C411A65AFA100D35180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBBE8C421A65AFA200D35180 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BBBE8C441A65AFA200D35180 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BBBE8C451A65AFA200D35180 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BBBE8C471A65AFA200D35180 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BBBE8C481A65AFA200D35180 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BBBE8C4B1A65AFA200D35180 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BBBE8C4D1A65AFA200D35180 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BBBE8C501A65AFA200D35180 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		BBBE8C561A65AFA200D35180 /* EpitechTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EpitechTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBBE8C5B1A65AFA200D35180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBBE8C5C1A65AFA200D35180 /* EpitechTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EpitechTests.m; sourceTree = "<group>"; };
+		BBC741F01A65B3D000865079 /* NetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkRequest.h; sourceTree = "<group>"; };
+		BBC741F11A65B3D000865079 /* NetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkRequest.m; sourceTree = "<group>"; };
+		BBC741F51A65BA0D00865079 /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextField.h; sourceTree = "<group>"; };
+		BBC741F61A65BA0D00865079 /* JVFloatLabeledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextField.m; sourceTree = "<group>"; };
+		BBC741F71A65BA0D00865079 /* JVFloatLabeledTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextView.h; sourceTree = "<group>"; };
+		BBC741F81A65BA0D00865079 /* JVFloatLabeledTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextView.m; sourceTree = "<group>"; };
+		BBC741F91A65BA0D00865079 /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TextDirectionality.h"; sourceTree = "<group>"; };
+		BBC741FA1A65BA0D00865079 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TextDirectionality.m"; sourceTree = "<group>"; };
+		BBC741FF1A65BD5300865079 /* Epitech-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Epitech-Bridging-Header.h"; sourceTree = "<group>"; };
+		BBC742001A65BD5400865079 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
+		BBC742021A65C36000865079 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		F2767F0DA9D49B366A73B662 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BBBE8C3A1A65AFA100D35180 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2665A3B4565B0292EE4520EF /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBBE8C531A65AFA200D35180 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		358858C0C4E1F82730A7DD92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				855B2EE96B5C0A3C65571D2E /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1DC8C76A8D90FAF36C13E44 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				59D5F617334848A84EFD38E8 /* Pods.debug.xcconfig */,
+				F2767F0DA9D49B366A73B662 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BBBE8C341A65AFA100D35180 = {
+			isa = PBXGroup;
+			children = (
+				BBBE8C3F1A65AFA100D35180 /* Epitech */,
+				BBBE8C591A65AFA200D35180 /* EpitechTests */,
+				BBBE8C3E1A65AFA100D35180 /* Products */,
+				A1DC8C76A8D90FAF36C13E44 /* Pods */,
+				358858C0C4E1F82730A7DD92 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BBBE8C3E1A65AFA100D35180 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BBBE8C3D1A65AFA100D35180 /* Epitech.app */,
+				BBBE8C561A65AFA200D35180 /* EpitechTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BBBE8C3F1A65AFA100D35180 /* Epitech */ = {
+			isa = PBXGroup;
+			children = (
+				BBC741EB1A65B04900865079 /* Application */,
+				BBC741EE1A65B3AC00865079 /* Utils */,
+				BBC741EC1A65B05000865079 /* Controllers */,
+				BBC741F31A65B9E900865079 /* Views */,
+				BBC741ED1A65B05D00865079 /* Ressources */,
+			);
+			path = Epitech;
+			sourceTree = "<group>";
+		};
+		BBBE8C401A65AFA100D35180 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BBBE8C411A65AFA100D35180 /* Info.plist */,
+				BBBE8C421A65AFA200D35180 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BBBE8C591A65AFA200D35180 /* EpitechTests */ = {
+			isa = PBXGroup;
+			children = (
+				BBBE8C5C1A65AFA200D35180 /* EpitechTests.m */,
+				BBBE8C5A1A65AFA200D35180 /* Supporting Files */,
+			);
+			path = EpitechTests;
+			sourceTree = "<group>";
+		};
+		BBBE8C5A1A65AFA200D35180 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BBBE8C5B1A65AFA200D35180 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BBC741EB1A65B04900865079 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BBC741FF1A65BD5300865079 /* Epitech-Bridging-Header.h */,
+				BBC742021A65C36000865079 /* Header.h */,
+				BBBE8C441A65AFA200D35180 /* AppDelegate.h */,
+				BBBE8C451A65AFA200D35180 /* AppDelegate.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		BBC741EC1A65B05000865079 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BBBE8C471A65AFA200D35180 /* ViewController.h */,
+				BBBE8C481A65AFA200D35180 /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BBC741ED1A65B05D00865079 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				BBBE8C4A1A65AFA200D35180 /* Main.storyboard */,
+				BBBE8C4D1A65AFA200D35180 /* Images.xcassets */,
+				BBBE8C4F1A65AFA200D35180 /* LaunchScreen.xib */,
+				BBBE8C401A65AFA100D35180 /* Supporting Files */,
+			);
+			name = Ressources;
+			sourceTree = "<group>";
+		};
+		BBC741EE1A65B3AC00865079 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BBC741EF1A65B3B400865079 /* Network */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		BBC741EF1A65B3B400865079 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BBC741F01A65B3D000865079 /* NetworkRequest.h */,
+				BBC741F11A65B3D000865079 /* NetworkRequest.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		BBC741F31A65B9E900865079 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BBC741FE1A65BD3C00865079 /* MaterialButton */,
+				BBC741F41A65BA0D00865079 /* JVFloatLabeledTextField */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BBC741F41A65BA0D00865079 /* JVFloatLabeledTextField */ = {
+			isa = PBXGroup;
+			children = (
+				BBC741F51A65BA0D00865079 /* JVFloatLabeledTextField.h */,
+				BBC741F61A65BA0D00865079 /* JVFloatLabeledTextField.m */,
+				BBC741F71A65BA0D00865079 /* JVFloatLabeledTextView.h */,
+				BBC741F81A65BA0D00865079 /* JVFloatLabeledTextView.m */,
+				BBC741F91A65BA0D00865079 /* NSString+TextDirectionality.h */,
+				BBC741FA1A65BA0D00865079 /* NSString+TextDirectionality.m */,
+			);
+			path = JVFloatLabeledTextField;
+			sourceTree = "<group>";
+		};
+		BBC741FE1A65BD3C00865079 /* MaterialButton */ = {
+			isa = PBXGroup;
+			children = (
+				BBC742001A65BD5400865079 /* ZFRippleButton.swift */,
+			);
+			name = MaterialButton;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BBBE8C3C1A65AFA100D35180 /* Epitech */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBBE8C601A65AFA200D35180 /* Build configuration list for PBXNativeTarget "Epitech" */;
+			buildPhases = (
+				1608EF1C36EE5617A9ABB7CA /* Check Pods Manifest.lock */,
+				BBBE8C391A65AFA100D35180 /* Sources */,
+				BBBE8C3A1A65AFA100D35180 /* Frameworks */,
+				BBBE8C3B1A65AFA100D35180 /* Resources */,
+				C4606B3CD2E1858A5A1FD01C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Epitech;
+			productName = Epitech;
+			productReference = BBBE8C3D1A65AFA100D35180 /* Epitech.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BBBE8C551A65AFA200D35180 /* EpitechTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBBE8C631A65AFA200D35180 /* Build configuration list for PBXNativeTarget "EpitechTests" */;
+			buildPhases = (
+				BBBE8C521A65AFA200D35180 /* Sources */,
+				BBBE8C531A65AFA200D35180 /* Frameworks */,
+				BBBE8C541A65AFA200D35180 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBBE8C581A65AFA200D35180 /* PBXTargetDependency */,
+			);
+			name = EpitechTests;
+			productName = EpitechTests;
+			productReference = BBBE8C561A65AFA200D35180 /* EpitechTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BBBE8C351A65AFA100D35180 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Remi Robert";
+				TargetAttributes = {
+					BBBE8C3C1A65AFA100D35180 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					BBBE8C551A65AFA200D35180 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = BBBE8C3C1A65AFA100D35180;
+					};
+				};
+			};
+			buildConfigurationList = BBBE8C381A65AFA100D35180 /* Build configuration list for PBXProject "Epitech" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BBBE8C341A65AFA100D35180;
+			productRefGroup = BBBE8C3E1A65AFA100D35180 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BBBE8C3C1A65AFA100D35180 /* Epitech */,
+				BBBE8C551A65AFA200D35180 /* EpitechTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BBBE8C3B1A65AFA100D35180 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBBE8C4C1A65AFA200D35180 /* Main.storyboard in Resources */,
+				BBBE8C511A65AFA200D35180 /* LaunchScreen.xib in Resources */,
+				BBBE8C4E1A65AFA200D35180 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBBE8C541A65AFA200D35180 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1608EF1C36EE5617A9ABB7CA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C4606B3CD2E1858A5A1FD01C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BBBE8C391A65AFA100D35180 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBC741FC1A65BA0D00865079 /* JVFloatLabeledTextView.m in Sources */,
+				BBBE8C491A65AFA200D35180 /* ViewController.m in Sources */,
+				BBC741FD1A65BA0D00865079 /* NSString+TextDirectionality.m in Sources */,
+				BBBE8C461A65AFA200D35180 /* AppDelegate.m in Sources */,
+				BBC741F21A65B3D000865079 /* NetworkRequest.m in Sources */,
+				BBC741FB1A65BA0D00865079 /* JVFloatLabeledTextField.m in Sources */,
+				BBBE8C431A65AFA200D35180 /* main.m in Sources */,
+				BBC742011A65BD5400865079 /* ZFRippleButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBBE8C521A65AFA200D35180 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBBE8C5D1A65AFA200D35180 /* EpitechTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BBBE8C581A65AFA200D35180 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBBE8C3C1A65AFA100D35180 /* Epitech */;
+			targetProxy = BBBE8C571A65AFA200D35180 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BBBE8C4A1A65AFA200D35180 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBBE8C4B1A65AFA200D35180 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BBBE8C4F1A65AFA200D35180 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBBE8C501A65AFA200D35180 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BBBE8C5E1A65AFA200D35180 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BBBE8C5F1A65AFA200D35180 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BBBE8C611A65AFA200D35180 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59D5F617334848A84EFD38E8 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = Epitech/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Epitech/Epitech-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BBBE8C621A65AFA200D35180 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2767F0DA9D49B366A73B662 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = Epitech/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Epitech/Epitech-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		BBBE8C641A65AFA200D35180 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = EpitechTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Epitech.app/Epitech";
+			};
+			name = Debug;
+		};
+		BBBE8C651A65AFA200D35180 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = EpitechTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Epitech.app/Epitech";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BBBE8C381A65AFA100D35180 /* Build configuration list for PBXProject "Epitech" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBBE8C5E1A65AFA200D35180 /* Debug */,
+				BBBE8C5F1A65AFA200D35180 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBBE8C601A65AFA200D35180 /* Build configuration list for PBXNativeTarget "Epitech" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBBE8C611A65AFA200D35180 /* Debug */,
+				BBBE8C621A65AFA200D35180 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBBE8C631A65AFA200D35180 /* Build configuration list for PBXNativeTarget "EpitechTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBBE8C641A65AFA200D35180 /* Debug */,
+				BBBE8C651A65AFA200D35180 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BBBE8C351A65AFA100D35180 /* Project object */;
+}
