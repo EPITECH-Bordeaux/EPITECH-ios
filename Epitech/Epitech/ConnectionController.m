@@ -6,23 +6,19 @@
 //  Copyright (c) 2015 Remi Robert. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ConnectionController.h"
 #import "NetworkRequest.h"
 #import "JVFloatLabeledTextField.h"
 #import "Epitech-swift.h"
 #import "Header.h"
+#import "UITextFieldForm.h"
 
-const static CGFloat kJVFieldHeight = 44.0f;
-const static CGFloat kJVFieldHMargin = 10.0f;
-const static CGFloat kJVFieldFontSize = 16.0f;
-const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
-
-@interface ViewController()
-@property (nonatomic, strong) JVFloatLabeledTextField *loginTextField;
-@property (nonatomic, strong) JVFloatLabeledTextField *passwordTextField;
+@interface ConnectionController()
+@property (nonatomic, strong) UITextFieldForm *loginTextField;
+@property (nonatomic, strong) UITextFieldForm *passwordTextField;
 @end
 
-@implementation ViewController
+@implementation ConnectionController
 
 - (void) makeRequestConnection {
     NSDictionary *params = @{@"login":self.loginTextField.text, @"password":self.passwordTextField.text};
@@ -36,30 +32,20 @@ const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
 }
 
 - (void) initForm {
-    self.loginTextField = [[JVFloatLabeledTextField alloc] initWithFrame:
-                                               CGRectMake(kJVFieldHMargin, 50,
-                                                      self.view.frame.size.width - 2 * kJVFieldHMargin,
-                                                      kJVFieldHeight)];
+    self.loginTextField = [[UITextFieldForm alloc] initWithFrame:CGRectMake(kJVFieldHMargin, 50,
+                                                                           self.view.frame.size.width - 2 * kJVFieldHMargin,
+                                                                           kJVFieldHeight)];
     self.loginTextField.attributedPlaceholder =
     [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Login", @"")
                                     attributes:@{NSForegroundColorAttributeName: [UIColor darkGrayColor]}];
-    self.loginTextField.font = [UIFont systemFontOfSize:kJVFieldFontSize];
-    self.loginTextField.floatingLabel.font = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
-    self.loginTextField.floatingLabelTextColor = [UIColor grayColor];
-    self.loginTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.passwordTextField = [[UITextFieldForm alloc] initWithFrame:CGRectMake(kJVFieldHMargin, 100,
+                                                                              self.view.frame.size.width - 2 * kJVFieldHMargin,
+                                                                               kJVFieldHeight)];
     
-    _passwordTextField = [[JVFloatLabeledTextField alloc] initWithFrame:
-                                               CGRectMake(kJVFieldHMargin, 100,
-                                                          self.view.frame.size.width - 2 * kJVFieldHMargin,
-                                                          kJVFieldHeight)];
     self.passwordTextField.attributedPlaceholder =
     [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Password Unix", @"")
                                     attributes:@{NSForegroundColorAttributeName: [UIColor darkGrayColor]}];
-    self.passwordTextField.font = [UIFont systemFontOfSize:kJVFieldFontSize];
-    self.passwordTextField.floatingLabel.font = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
-    self.passwordTextField.floatingLabelTextColor = [UIColor grayColor];
     self.passwordTextField.secureTextEntry = true;
-    self.passwordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     ZFRippleButton *buttonConnect = [[ZFRippleButton alloc] initWithFrame:CGRectMake(0, 200, 200, 40)];
     [buttonConnect setTitle:@"Connection" forState:UIControlStateNormal];
@@ -78,6 +64,7 @@ const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self initForm];
 }
 
