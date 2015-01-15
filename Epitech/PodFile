@@ -1,3 +1,7 @@
 pod 'AsyncDisplayKit'
 pod 'pop'
 pod "AFNetworking"
+
+target 'EpitechTests' do
+    pod "AFNetworking"
+end
