@@ -59,6 +59,28 @@
          }];
 }
 
+- (void) makeRequestCalendar {
+    NSDate *currentDate = [[NSDate alloc]init];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-DD"];
+    NSString *stringFromDate = [formatter stringFromDate:currentDate];
+    NSDictionary *params = @{@"token":self.token, @"start":@"2015-01-19", @"end":@"2015-01-19"};
+    
+    [NetworkRequest GET:PLANNING_ROUTE parameters:params
+         blockCompletion:^(AFHTTPRequestOperation *operation, id responseObject) {
+//             NSDictionary *jsonDict = (NSDictionary *) responseObject;
+//             NSLog(@"%@", responseObject);
+             
+             for (NSDictionary *currentEvent in (NSArray *)responseObject) {
+                 NSLog(@"current EVENT : %@", currentDate);
+             }
+             
+         } andErrorCompletion:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"%@", operation.responseString);
+             NSLog(@"Error: %@", error);
+         }];
+}
+
 - (void) initTableViewDashBoard {
     self.listCalendar = [[UITableView alloc] initWithFrame:CGRectMake(0, 300, self.view.frame.size.width,
                                                                       self.view.frame.size.height - 300)];
@@ -83,6 +105,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self makeRequestDashBoardInfos];
+    [self makeRequestCalendar];
     self.view.backgroundColor = [UIColor whiteColor];
     [self initTableViewDashBoard];
 }

@@ -27,4 +27,22 @@
     return (postRequestOperation);
 }
 
++ (AFHTTPRequestOperation *)        GET:(NSString *)urlString
+                              parameters:(NSDictionary *)parameters
+                         blockCompletion:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                      andErrorCompletion:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    [manager.requestSerializer setTimeoutInterval:30];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    AFHTTPRequestOperation *postRequestOperation = [manager GET:urlString parameters:parameters
+                                                         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                             success(operation, responseObject);
+                                                         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                             failure(operation, error);
+                                                         }];
+    return (postRequestOperation);
+    
+}
+
 @end

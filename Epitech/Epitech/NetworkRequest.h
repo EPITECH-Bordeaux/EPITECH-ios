@@ -16,4 +16,9 @@
                          blockCompletion:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                       andErrorCompletion:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
++ (AFHTTPRequestOperation *)        GET:(NSString *)urlString
+                             parameters:(NSDictionary *)parameters
+                        blockCompletion:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                     andErrorCompletion:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
 @end

@@ -9,8 +9,9 @@
 #ifndef Epitech_Header_h
 #define Epitech_Header_h
 
-# define URL_API        @"https://epitech-api.herokuapp.com"
-# define LOGIN_ROUTE    [NSString stringWithFormat:@"%@/login", URL_API]
-# define INFOS_ROUTE    [NSString stringWithFormat:@"%@/infos", URL_API]
+# define URL_API            @"https://epitech-api.herokuapp.com"
+# define LOGIN_ROUTE        [NSString stringWithFormat:@"%@/login", URL_API]
+# define INFOS_ROUTE        [NSString stringWithFormat:@"%@/infos", URL_API]
+# define PLANNING_ROUTE     [NSString stringWithFormat:@"%@/planning", URL_API]
 
 #endif
