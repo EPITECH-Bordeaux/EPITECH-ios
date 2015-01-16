@@ -15,6 +15,8 @@
 #import "Epitech-swift.h"
 #import "CalendarEvent.h"
 #import "CalendarEventCell.h"
+#import "NotificationMessage.h"
+#import "MessageCell.h"
 
 @interface DashBoardController ()
 @property (nonatomic, strong) UITableView *listCalendar;
@@ -24,6 +26,7 @@
 @property (nonatomic, strong) PictureProfile *pictureProfile;
 
 @property (nonatomic, strong) NSMutableArray *calendarEvent;
+@property (nonatomic, strong) NSMutableArray *messages;
 @end
 
 # define TAG_LIST_CALENDAR_EVENT        1
@@ -35,6 +38,9 @@
     if (tableView.tag == TAG_LIST_CALENDAR_EVENT) {
         return (self.calendarEvent.count);
     }
+    else if (tableView.tag == TAG_LIST_MESSAGES) {
+        return (self.messages.count);
+    }
     return (0);
 }
 
@@ -45,6 +51,14 @@
             cell = [[CalendarEventCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:REUSE_IDENTIFIER_CALENDAR_CELL];
         }
         ((CalendarEventCell *)cell).textLabel.text = ((CalendarEvent *)[self.calendarEvent objectAtIndex:indexPath.row]).title;
+        return (cell);
+    }
+    else if (tableView.tag == TAG_LIST_MESSAGES) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:REUSE_IDENTIFIER_MESSAGE_CELL];
+        if (!cell) {
+            cell = [[MessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:REUSE_IDENTIFIER_MESSAGE_CELL];
+        }
+        ((MessageCell *)cell).textLabel.text = ((NotificationMessage *)[self.messages objectAtIndex:indexPath.row]).title;
         return (cell);
     }
     return (nil);
@@ -102,7 +116,20 @@
 }
 
 - (void) makeRequestMessages {
+    NSDictionary *params = @{@"token":self.token};
     
+    [NetworkRequest GET:MESSAGES_ROUTE parameters:params
+        blockCompletion:^(AFHTTPRequestOperation *operation, id responseObject) {
+            self.messages = [[NSMutableArray alloc] init];
+            for (NSDictionary *currentMessage in (NSArray *)responseObject) {
+                [self.messages addObject:[[NotificationMessage alloc] initWithJSONDate:currentMessage]];
+            }
+            [self.listMessages reloadData];
+        } andErrorCompletion:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%@", operation.responseString);
+            NSLog(@"Error: %@", error);
+        }];
+
 }
 
 - (void) makeRequestCalendar {
@@ -120,7 +147,6 @@
                      [self.calendarEvent addObject:[[CalendarEvent alloc] initWithJSONDate:currentEvent]];
                  }
              }
-             NSLog(@"number object : %d", self.calendarEvent.count);
              [self.listCalendar reloadData];
          } andErrorCompletion:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"%@", operation.responseString);
@@ -135,6 +161,8 @@
                                                                       self.view.frame.size.width, self.view.frame.size.height / 2)];    
     self.listCalendar.dataSource = self;
     self.listCalendar.delegate = self;
+    self.listMessages.dataSource = self;
+    self.listMessages.delegate = self;
     self.listCalendar.tag = TAG_LIST_CALENDAR_EVENT;
     self.listMessages.tag = TAG_LIST_MESSAGES;
     self.segmentControlList = [[UISegmentedControl alloc] initWithItems:@[@"Ma journée", @"Messages"]];
@@ -160,6 +188,7 @@
     [self initTableViewDashBoard];
     [self makeRequestDashBoardInfos];
     [self makeRequestCalendar];
+    [self makeRequestMessages];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -10,4 +10,17 @@
 
 @implementation NotificationMessage
 
+- (instancetype) initWithJSONDate:(NSDictionary *)jsonData {
+    self = [super init];
+    
+    if (self) {
+        self.title = [jsonData objectForKey:@"title"];
+        self.content = [jsonData objectForKey:@"content"];
+        self.date = [jsonData objectForKey:@"date"];
+        self.user = [[jsonData objectForKey:@"user"] objectForKey:@"title"];
+        self.pictureUser = [[jsonData objectForKey:@"user"] objectForKey:@"picture"];
+    }
+    return (self);
+}
+
 @end
