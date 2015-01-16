@@ -17,6 +17,6 @@
 @property (nonatomic, assign) NSInteger schoolYear;
 @property (nonatomic, strong) CurrentStatUser *statUser;
 
-- (instancetype) initWithJSONDate:(NSDictionary *)jsonData;
+- (instancetype) initWithJSONDate:(NSDictionary *)jsonData currentInformationStat:(NSDictionary *)statInformations;
 
 @end

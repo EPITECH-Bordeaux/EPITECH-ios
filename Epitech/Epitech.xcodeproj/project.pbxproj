@@ -14,6 +14,9 @@
 		BB0A2DB81A691B500045F56B /* CurrentStatUser.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2DB71A691B500045F56B /* CurrentStatUser.m */; };
 		BB0A2DBB1A69205A0045F56B /* PictureProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2DBA1A69205A0045F56B /* PictureProfile.m */; };
 		BB0A2DBD1A6922990045F56B /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2DBC1A6922990045F56B /* ImageDownloader.swift */; };
+		BB1CB3261A69772000E619BA /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1CB3251A69772000E619BA /* CalendarEvent.m */; };
+		BB1CB3291A6979EA00E619BA /* CalendarEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1CB3281A6979EA00E619BA /* CalendarEventCell.m */; };
+		BB1CB32C1A697E0200E619BA /* NotificationMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1CB32B1A697E0200E619BA /* NotificationMessage.m */; };
 		BB5102CE1A68342D0057709E /* UITextFieldForm.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5102CD1A68342D0057709E /* UITextFieldForm.m */; };
 		BB5102D11A6837D90057709E /* DashBoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5102D01A6837D90057709E /* DashBoardController.m */; };
 		BBBE8C431A65AFA200D35180 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE8C421A65AFA200D35180 /* main.m */; };
@@ -52,6 +55,12 @@
 		BB0A2DB91A69205A0045F56B /* PictureProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureProfile.h; sourceTree = "<group>"; };
 		BB0A2DBA1A69205A0045F56B /* PictureProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureProfile.m; sourceTree = "<group>"; };
 		BB0A2DBC1A6922990045F56B /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		BB1CB3241A69772000E619BA /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
+		BB1CB3251A69772000E619BA /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
+		BB1CB3271A6979EA00E619BA /* CalendarEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEventCell.h; sourceTree = "<group>"; };
+		BB1CB3281A6979EA00E619BA /* CalendarEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEventCell.m; sourceTree = "<group>"; };
+		BB1CB32A1A697E0200E619BA /* NotificationMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationMessage.h; sourceTree = "<group>"; };
+		BB1CB32B1A697E0200E619BA /* NotificationMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationMessage.m; sourceTree = "<group>"; };
 		BB5102CC1A68342D0057709E /* UITextFieldForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldForm.h; sourceTree = "<group>"; };
 		BB5102CD1A68342D0057709E /* UITextFieldForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldForm.m; sourceTree = "<group>"; };
 		BB5102CF1A6837D90057709E /* DashBoardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashBoardController.h; sourceTree = "<group>"; };
@@ -134,6 +143,10 @@
 				BB0A2DB41A6919D90045F56B /* UserInformations.m */,
 				BB0A2DB61A691B500045F56B /* CurrentStatUser.h */,
 				BB0A2DB71A691B500045F56B /* CurrentStatUser.m */,
+				BB1CB3241A69772000E619BA /* CalendarEvent.h */,
+				BB1CB3251A69772000E619BA /* CalendarEvent.m */,
+				BB1CB32A1A697E0200E619BA /* NotificationMessage.h */,
+				BB1CB32B1A697E0200E619BA /* NotificationMessage.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -257,6 +270,8 @@
 				BB5102CD1A68342D0057709E /* UITextFieldForm.m */,
 				BB0A2DB91A69205A0045F56B /* PictureProfile.h */,
 				BB0A2DBA1A69205A0045F56B /* PictureProfile.m */,
+				BB1CB3271A6979EA00E619BA /* CalendarEventCell.h */,
+				BB1CB3281A6979EA00E619BA /* CalendarEventCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -456,9 +471,12 @@
 				BB5102CE1A68342D0057709E /* UITextFieldForm.m in Sources */,
 				BBC741FD1A65BA0D00865079 /* NSString+TextDirectionality.m in Sources */,
 				BBBE8C461A65AFA200D35180 /* AppDelegate.m in Sources */,
+				BB1CB32C1A697E0200E619BA /* NotificationMessage.m in Sources */,
 				BB0A2DB81A691B500045F56B /* CurrentStatUser.m in Sources */,
 				BBC741F21A65B3D000865079 /* NetworkRequest.m in Sources */,
 				BB0A2DBB1A69205A0045F56B /* PictureProfile.m in Sources */,
+				BB1CB3291A6979EA00E619BA /* CalendarEventCell.m in Sources */,
+				BB1CB3261A69772000E619BA /* CalendarEvent.m in Sources */,
 				BBC741FB1A65BA0D00865079 /* JVFloatLabeledTextField.m in Sources */,
 				BBBE8C431A65AFA200D35180 /* main.m in Sources */,
 				BB0A2DB51A6919D90045F56B /* UserInformations.m in Sources */,

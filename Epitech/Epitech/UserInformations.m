@@ -10,7 +10,7 @@
 
 @implementation UserInformations
 
-- (instancetype) initWithJSONDate:(NSDictionary *)jsonData {
+- (instancetype) initWithJSONDate:(NSDictionary *)jsonData currentInformationStat:(NSDictionary *)statInformations {
     self = [super init];
     
     if (self) {
@@ -18,7 +18,7 @@
         self.title = [jsonData objectForKey:@"title"];
         self.urlPicture = [jsonData objectForKey:@"picture"];
         self.schoolYear = [[jsonData objectForKey:@"studentyear"] integerValue];
-        self.statUser = [[CurrentStatUser alloc] initWithJSONDate:[jsonData objectForKey:@"current"]];
+        self.statUser = [[CurrentStatUser alloc] initWithJSONDate:statInformations];
     }
     return (self);
 }
