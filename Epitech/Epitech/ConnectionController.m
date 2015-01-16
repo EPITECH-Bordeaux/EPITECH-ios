@@ -27,7 +27,7 @@
 
     [NetworkRequest POST:LOGIN_ROUTE parameters:params
          blockCompletion:^(AFHTTPRequestOperation *operation, id responseObject) {
-             NSDictionary *jsonDict = (NSDictionary *) responseObject;
+             NSDictionary *jsonDict = (NSDictionary *)responseObject;
              DashBoardController *dashBoardController = [[DashBoardController alloc] init];
              dashBoardController.token = [jsonDict objectForKey:@"token"];
              [self presentViewController:dashBoardController animated:true completion:nil];

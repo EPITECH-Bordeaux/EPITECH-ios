@@ -9,11 +9,17 @@
 #import "DashBoardController.h"
 #import "NetworkRequest.h"
 #import "Header.h"
+#import "UserInformations.h"
+#import "UITextFieldForm.h"
+#import "PictureProfile.h"
+#import "Epitech-swift.h"
 
 @interface DashBoardController ()
 @property (nonatomic, strong) UITableView *listCalendar;
 @property (nonatomic, strong) UITableView *listMessages;
 @property (nonatomic, strong) UISegmentedControl *segmentControlList;
+@property (nonatomic, strong) UserInformations *userInformations;
+@property (nonatomic, strong) PictureProfile *pictureProfile;
 @end
 
 @implementation DashBoardController
@@ -46,13 +52,28 @@
     [self.listCalendar.layer pop_addAnimation:springAnimationCalendar forKey:@"springMessage2"];
 }
 
+- (void) initDashboardInformationUI {
+    self.pictureProfile = [[PictureProfile alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - defaultSizePictureDashboard / 2, 60,
+                                                                           defaultSizePictureDashboard, defaultSizePictureDashboard)];
+    [self.view addSubview:self.pictureProfile];
+}
+
 - (void) makeRequestDashBoardInfos {
     NSDictionary *params = @{@"token":self.token};
     
     [NetworkRequest POST:INFOS_ROUTE parameters:params
          blockCompletion:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSDictionary *jsonDict = (NSDictionary *) responseObject;
-             NSLog(@"%@", responseObject);
+             self.userInformations = [[UserInformations alloc] initWithJSONDate:[jsonDict objectForKey:@"infos"]];
+             NSLog(@"picture : %@", self.userInformations.urlPicture);
+             
+            [ImageDownloader downloadImageWithSizeWithUrlImage:[NSString stringWithFormat:@"https://cdn.local.epitech.eu/userprofil/%@",
+                                                                self.userInformations.urlPicture]
+                                                     sizeImage:self.pictureProfile.frame.size completionBlock:^(UIImage *image) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.pictureProfile setImage:image];
+                });
+            }];
          } andErrorCompletion:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"%@", operation.responseString);
              NSLog(@"Error: %@", error);
@@ -92,7 +113,7 @@
     self.listMessages.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.5];
     
     self.segmentControlList = [[UISegmentedControl alloc] initWithItems:@[@"Ma journée", @"Messages"]];
-    self.segmentControlList.frame = CGRectMake(0, 275, self.view.frame.size.width, 25);
+    self.segmentControlList.frame = CGRectMake(10, 275, self.view.frame.size.width - 20, 25);
     self.segmentControlList.selectedSegmentIndex = 0;
     [self.segmentControlList addTarget:self action:@selector(changeSegment) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:self.segmentControlList];
@@ -104,10 +125,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self initDashboardInformationUI];
+    [self initTableViewDashBoard];
     [self makeRequestDashBoardInfos];
     [self makeRequestCalendar];
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self initTableViewDashBoard];
 }
 
 - (void)didReceiveMemoryWarning {

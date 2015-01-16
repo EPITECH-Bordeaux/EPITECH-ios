@@ -10,6 +10,10 @@
 		2665A3B4565B0292EE4520EF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 855B2EE96B5C0A3C65571D2E /* libPods.a */; };
 		6B28BF3BE41E0A9D9C926681 /* libPods-Epitech.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D300BA068B1554B696F4380 /* libPods-Epitech.a */; };
 		AE256396017251BFE9315FFF /* libPods-EpitechTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 494BB21545C1A95E1B922763 /* libPods-EpitechTests.a */; };
+		BB0A2DB51A6919D90045F56B /* UserInformations.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2DB41A6919D90045F56B /* UserInformations.m */; };
+		BB0A2DB81A691B500045F56B /* CurrentStatUser.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2DB71A691B500045F56B /* CurrentStatUser.m */; };
+		BB0A2DBB1A69205A0045F56B /* PictureProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2DBA1A69205A0045F56B /* PictureProfile.m */; };
+		BB0A2DBD1A6922990045F56B /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A2DBC1A6922990045F56B /* ImageDownloader.swift */; };
 		BB5102CE1A68342D0057709E /* UITextFieldForm.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5102CD1A68342D0057709E /* UITextFieldForm.m */; };
 		BB5102D11A6837D90057709E /* DashBoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5102D01A6837D90057709E /* DashBoardController.m */; };
 		BBBE8C431A65AFA200D35180 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE8C421A65AFA200D35180 /* main.m */; };
@@ -41,6 +45,13 @@
 		4D300BA068B1554B696F4380 /* libPods-Epitech.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Epitech.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D5F617334848A84EFD38E8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		855B2EE96B5C0A3C65571D2E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB0A2DB31A6919D90045F56B /* UserInformations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformations.h; sourceTree = "<group>"; };
+		BB0A2DB41A6919D90045F56B /* UserInformations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformations.m; sourceTree = "<group>"; };
+		BB0A2DB61A691B500045F56B /* CurrentStatUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentStatUser.h; sourceTree = "<group>"; };
+		BB0A2DB71A691B500045F56B /* CurrentStatUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentStatUser.m; sourceTree = "<group>"; };
+		BB0A2DB91A69205A0045F56B /* PictureProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureProfile.h; sourceTree = "<group>"; };
+		BB0A2DBA1A69205A0045F56B /* PictureProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureProfile.m; sourceTree = "<group>"; };
+		BB0A2DBC1A6922990045F56B /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		BB5102CC1A68342D0057709E /* UITextFieldForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldForm.h; sourceTree = "<group>"; };
 		BB5102CD1A68342D0057709E /* UITextFieldForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldForm.m; sourceTree = "<group>"; };
 		BB5102CF1A6837D90057709E /* DashBoardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashBoardController.h; sourceTree = "<group>"; };
@@ -116,6 +127,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BB0A2DB21A6919A90045F56B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BB0A2DB31A6919D90045F56B /* UserInformations.h */,
+				BB0A2DB41A6919D90045F56B /* UserInformations.m */,
+				BB0A2DB61A691B500045F56B /* CurrentStatUser.h */,
+				BB0A2DB71A691B500045F56B /* CurrentStatUser.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		BBBE8C341A65AFA100D35180 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +161,7 @@
 		BBBE8C3F1A65AFA100D35180 /* Epitech */ = {
 			isa = PBXGroup;
 			children = (
+				BB0A2DB21A6919A90045F56B /* Models */,
 				BBC741EB1A65B04900865079 /* Application */,
 				BBC741EE1A65B3AC00865079 /* Utils */,
 				BBC741EC1A65B05000865079 /* Controllers */,
@@ -210,6 +233,7 @@
 		BBC741EE1A65B3AC00865079 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				BB0A2DBC1A6922990045F56B /* ImageDownloader.swift */,
 				BBC741EF1A65B3B400865079 /* Network */,
 			);
 			name = Utils;
@@ -231,6 +255,8 @@
 				BBC741F41A65BA0D00865079 /* JVFloatLabeledTextField */,
 				BB5102CC1A68342D0057709E /* UITextFieldForm.h */,
 				BB5102CD1A68342D0057709E /* UITextFieldForm.m */,
+				BB0A2DB91A69205A0045F56B /* PictureProfile.h */,
+				BB0A2DBA1A69205A0045F56B /* PictureProfile.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -425,13 +451,17 @@
 			files = (
 				BB5102D11A6837D90057709E /* DashBoardController.m in Sources */,
 				BBC741FC1A65BA0D00865079 /* JVFloatLabeledTextView.m in Sources */,
+				BB0A2DBD1A6922990045F56B /* ImageDownloader.swift in Sources */,
 				BBBE8C491A65AFA200D35180 /* ConnectionController.m in Sources */,
 				BB5102CE1A68342D0057709E /* UITextFieldForm.m in Sources */,
 				BBC741FD1A65BA0D00865079 /* NSString+TextDirectionality.m in Sources */,
 				BBBE8C461A65AFA200D35180 /* AppDelegate.m in Sources */,
+				BB0A2DB81A691B500045F56B /* CurrentStatUser.m in Sources */,
 				BBC741F21A65B3D000865079 /* NetworkRequest.m in Sources */,
+				BB0A2DBB1A69205A0045F56B /* PictureProfile.m in Sources */,
 				BBC741FB1A65BA0D00865079 /* JVFloatLabeledTextField.m in Sources */,
 				BBBE8C431A65AFA200D35180 /* main.m in Sources */,
+				BB0A2DB51A6919D90045F56B /* UserInformations.m in Sources */,
 				BBC742011A65BD5400865079 /* ZFRippleButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
