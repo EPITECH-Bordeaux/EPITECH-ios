@@ -40,8 +40,18 @@ class ImageDownloader :NSObject, NSURLConnectionDelegate, NSURLConnectionDataDel
     }
     
     func connectionDidFinishLoading(connection: NSURLConnection) {
-        var imageDownloaded = UIImage(data: UIImageJPEGRepresentation(UIImage(data: self.dataImage!), 0))
-
+        if (self.dataImage == nil) {
+            self.blockCompletion?(imageDownloaded: nil)
+            return
+        }
+        var imageDownloaded: UIImage!
+        if let image = UIImage(data: self.dataImage!) {
+            imageDownloaded = UIImage(data: UIImageJPEGRepresentation(image, 0))
+        }
+        else {
+            self.blockCompletion?(imageDownloaded: nil)
+            return
+        }
         
         
         if let compressSizeImage = self.sizeImage {
@@ -66,8 +76,13 @@ class ImageDownloader :NSObject, NSURLConnectionDelegate, NSURLConnectionDataDel
     }
     
     private func createRequest(urlImage: String) {
-        let request: NSURLRequest = NSURLRequest(URL: NSURL(string: urlImage)!)
-        let connection = NSURLConnection(request: request, delegate: self, startImmediately: true)
+        if let url = NSURL(string: urlImage) {
+            let request: NSURLRequest = NSURLRequest(URL: url)
+            let connection = NSURLConnection(request: request, delegate: self, startImmediately: true)
+        }
+        else {
+            self.blockCompletion?(imageDownloaded: nil)
+        }
     }
     
     private class func runDownloadImage(#urlImage: String, sizeImage: CGSize?, completionBlock: ((image:UIImage?) -> ())) {

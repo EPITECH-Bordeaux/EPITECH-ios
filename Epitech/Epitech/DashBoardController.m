@@ -34,6 +34,13 @@
 
 @implementation DashBoardController
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView.tag == TAG_LIST_MESSAGES) {
+        return ([MessageCell calcHeightContentCell:(NotificationMessage *)[self.messages objectAtIndex:indexPath.row]]);
+    }
+    return (50);
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView.tag == TAG_LIST_CALENDAR_EVENT) {
         return (self.calendarEvent.count);
@@ -57,8 +64,10 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:REUSE_IDENTIFIER_MESSAGE_CELL];
         if (!cell) {
             cell = [[MessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:REUSE_IDENTIFIER_MESSAGE_CELL];
+            [((MessageCell *)cell) initContentCell:((NotificationMessage *)[self.messages objectAtIndex:indexPath.row])];
         }
-        ((MessageCell *)cell).textLabel.text = ((NotificationMessage *)[self.messages objectAtIndex:indexPath.row]).title;
+        [((MessageCell *)cell) setContent:((NotificationMessage *)[self.messages objectAtIndex:indexPath.row])];
+        //((MessageCell *)cell).textLabel.text = ((NotificationMessage *)[self.messages objectAtIndex:indexPath.row]).title;
         return (cell);
     }
     return (nil);
@@ -122,6 +131,7 @@
         blockCompletion:^(AFHTTPRequestOperation *operation, id responseObject) {
             self.messages = [[NSMutableArray alloc] init];
             for (NSDictionary *currentMessage in (NSArray *)responseObject) {
+                NSLog(@"current event %@", currentMessage);
                 [self.messages addObject:[[NotificationMessage alloc] initWithJSONDate:currentMessage]];
             }
             [self.listMessages reloadData];

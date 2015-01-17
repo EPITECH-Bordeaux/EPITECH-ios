@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NotificationMessage.h"
 
 # define REUSE_IDENTIFIER_MESSAGE_CELL         @"message_cell_identifier"
 
 @interface MessageCell : UITableViewCell
+
+- (void) initContentCell:(NotificationMessage *)message;
++ (CGFloat) calcHeightContentCell:(NotificationMessage *)message;
+- (void) setContent:(NotificationMessage *)message;
 
 @end

@@ -10,11 +10,18 @@
 
 @implementation NotificationMessage
 
+- (void) removeHtmlCode {
+    if ([self.title componentsSeparatedByString:@"<a"].count == 0) return;
+    self.title = [NSString stringWithFormat:@"%@%@", [[self.title componentsSeparatedByString:@"<a"] firstObject],
+                  [[[[self.title componentsSeparatedByString:@"\">"] lastObject] componentsSeparatedByString:@"</a>"] firstObject]];
+}
+
 - (instancetype) initWithJSONDate:(NSDictionary *)jsonData {
     self = [super init];
     
     if (self) {
         self.title = [jsonData objectForKey:@"title"];
+        [self removeHtmlCode];
         self.content = [jsonData objectForKey:@"content"];
         self.date = [jsonData objectForKey:@"date"];
         self.user = [[jsonData objectForKey:@"user"] objectForKey:@"title"];
