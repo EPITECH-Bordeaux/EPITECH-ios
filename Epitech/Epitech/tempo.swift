@@ -204,6 +204,10 @@ extension Tempo {
         }
         return nil
     }
+    
+    func diffHour(date: Tempo) -> String {
+        return "\(self.diff(ComponentDate.Hours, date: date)!)";
+    }
 }
 
 extension Tempo {
@@ -235,6 +239,7 @@ extension Tempo {
         }
         return nil
     }
+    
     
     func isBefore(date: Tempo) -> Bool? {
         return self.getValueDiff(date, component: .Secondes, isAfter: false)
@@ -286,6 +291,6 @@ extension Tempo {
     }
 }
 
-enum ComponentDate {
+enum ComponentDate: Int {
     case Years, Months, Days, Hours, Minutes, Secondes
 }

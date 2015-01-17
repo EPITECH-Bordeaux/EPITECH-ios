@@ -14,7 +14,7 @@
 @interface MessageCell : UITableViewCell
 
 - (void) initContentCell:(NotificationMessage *)message;
-+ (CGFloat) calcHeightContentCell:(NotificationMessage *)message;
 - (void) setContent:(NotificationMessage *)message;
++ (CGFloat) calcHeightContentCell:(NotificationMessage *)message;
 
 @end

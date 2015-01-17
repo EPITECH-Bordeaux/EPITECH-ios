@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CalendarEvent.h"
 
 # define REUSE_IDENTIFIER_CALENDAR_CELL         @"calendar_cell_identifier"
 
 @interface CalendarEventCell : UITableViewCell
+
+- (void) initContentCell:(CalendarEvent *)event;
+- (void) setContent:(CalendarEvent *)event;
++ (CGFloat) calcHeightContentCell:(CalendarEvent *)message;
 
 @end

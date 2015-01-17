@@ -38,6 +38,9 @@
     if (tableView.tag == TAG_LIST_MESSAGES) {
         return ([MessageCell calcHeightContentCell:(NotificationMessage *)[self.messages objectAtIndex:indexPath.row]]);
     }
+    else if (tableView.tag == TAG_LIST_CALENDAR_EVENT) {
+        return ([CalendarEventCell calcHeightContentCell:(CalendarEvent *)[self.calendarEvent objectAtIndex:indexPath.row]]);
+    }
     return (50);
 }
 
@@ -56,8 +59,9 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:REUSE_IDENTIFIER_CALENDAR_CELL];
         if (!cell) {
             cell = [[CalendarEventCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:REUSE_IDENTIFIER_CALENDAR_CELL];
+            [((CalendarEventCell *)cell) initContentCell:((CalendarEvent *)[self.calendarEvent objectAtIndex:indexPath.row])];
         }
-        ((CalendarEventCell *)cell).textLabel.text = ((CalendarEvent *)[self.calendarEvent objectAtIndex:indexPath.row]).title;
+        [((CalendarEventCell *)cell) setContent:((CalendarEvent *)[self.calendarEvent objectAtIndex:indexPath.row])];
         return (cell);
     }
     else if (tableView.tag == TAG_LIST_MESSAGES) {
@@ -67,7 +71,6 @@
             [((MessageCell *)cell) initContentCell:((NotificationMessage *)[self.messages objectAtIndex:indexPath.row])];
         }
         [((MessageCell *)cell) setContent:((NotificationMessage *)[self.messages objectAtIndex:indexPath.row])];
-        //((MessageCell *)cell).textLabel.text = ((NotificationMessage *)[self.messages objectAtIndex:indexPath.row]).title;
         return (cell);
     }
     return (nil);
@@ -168,7 +171,10 @@
     self.listCalendar = [[UITableView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height / 2, self.view.frame.size.width,
                                                                       self.view.frame.size.height / 2)];
     self.listMessages = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width, self.view.frame.size.height / 2,
-                                                                      self.view.frame.size.width, self.view.frame.size.height / 2)];    
+                                                                      self.view.frame.size.width, self.view.frame.size.height / 2)];
+
+    
+    self.listCalendar.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.listCalendar.dataSource = self;
     self.listCalendar.delegate = self;
     self.listMessages.dataSource = self;

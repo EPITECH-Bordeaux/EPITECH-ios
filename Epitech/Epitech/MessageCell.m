@@ -63,13 +63,6 @@
     self.date.textAlignment = NSTextAlignmentRight;
     self.date.font = [UIFont boldSystemFontOfSize:12];
     
-//    self.contentTextView = [[UITextView alloc] initWithFrame:CGRectMake(10, 80, [UIScreen mainScreen].bounds.size.width - 20, 20)];
-//    self.contentTextView.font = [UIFont boldSystemFontOfSize:12];
-//    self.contentTextView.text = message.content;
-//    self.contentTextView.editable = false;
-//    self.contentTextView.scrollEnabled = false;
-//    [self.contentTextView sizeToFit];
-
     self.contentWeb = [[UIWebView alloc] initWithFrame:CGRectMake(10, 80, [UIScreen mainScreen].bounds.size.width - 20, 30)];
     [self.contentWeb loadHTMLString:message.content baseURL:nil];
     [self.contentWeb sizeToFit];
@@ -83,9 +76,9 @@
 
 - (void) setContent:(NotificationMessage *)message {
     [self.pictureProfile setImage:nil];
-    NSLog(@"url : %@", message.pictureUser);
     if ([message.pictureUser isKindOfClass:[NSString class]]) {
-        [ImageDownloader downloadImageWithSizeWithUrlImage:message.pictureUser sizeImage:CGSizeMake(20, 20) completionBlock:^(UIImage *image) {
+        [ImageDownloader downloadImageWithSizeWithUrlImage:message.pictureUser
+                                                 sizeImage:CGSizeMake(20, 20) completionBlock:^(UIImage *image) {
             [self.pictureProfile setImage:image];
         }];        
     }
@@ -99,9 +92,6 @@
     Tempo *currentDate = [[Tempo alloc] init];
     
     self.date.text = [[[Tempo alloc] initWithDate:dateFromString] timeAgoFrom:currentDate];
-    
-//    self.contentTextView.text = message.content;
-    [self.contentWeb loadHTMLString:message.content baseURL:nil];
     self.title.text = message.title;
 }
 
