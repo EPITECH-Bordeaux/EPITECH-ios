@@ -10,7 +10,6 @@
 #import "Epitech-swift.h"
 
 @interface CalendarEventCell()
-@property (nonatomic, strong) UIView *separator;
 @property (nonatomic, strong) UITextView *titleEvent;
 @property (nonatomic, strong) UITextView *module;
 @property (nonatomic, strong) UIView *clock;
@@ -50,9 +49,6 @@
     self.titleEvent.editable = false;
     [self.titleEvent sizeToFit];
     
-    self.separator = [[UIView alloc] initWithFrame:CGRectMake(34, 0, 3, [CalendarEventCell calcHeightContentCell:event])];
-    self.separator.backgroundColor = [UIColor grayColor];
-    
     self.clock = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 50, 50)];
     self.clock.backgroundColor = [UIColor grayColor];
     self.clock.layer.cornerRadius = 25;
@@ -70,7 +66,6 @@
     self.hour.font = [UIFont boldSystemFontOfSize:10];
     
     [self.clock addSubview:self.hour];
-    [self.contentView addSubview:self.separator];
     [self.contentView addSubview:self.clock];
     [self.contentView addSubview:self.titleEvent];
     [self.contentView addSubview:self.module];
@@ -87,7 +82,7 @@
     
     Tempo *dateStartTempo = [[Tempo alloc] initWithDate:dateStart];
     Tempo *dateEndTempo = [[Tempo alloc] initWithDate:dateEnd];
-    self.hour.text = [dateStartTempo formatDate:@"HH::mm"];
+    self.hour.text = [dateStartTempo formatDate:@"HH:mm"];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -184,6 +184,7 @@
                      [self.calendarEvent addObject:[[CalendarEvent alloc] initWithJSONDate:currentEvent]];
                  }
              }
+             self.calendarEvent = (NSMutableArray *)[[(NSArray *)self.calendarEvent reverseObjectEnumerator] allObjects];
              [self.listCalendar reloadData];
          } andErrorCompletion:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"%@", operation.responseString);

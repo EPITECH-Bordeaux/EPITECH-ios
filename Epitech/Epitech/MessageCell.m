@@ -82,6 +82,9 @@
             [self.pictureProfile setImage:image];
         }];        
     }
+    else {
+        [self.pictureProfile setImage:[UIImage imageNamed:@"defaultUserPicture"]];
+    }
     self.loginUser.text = message.user;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
