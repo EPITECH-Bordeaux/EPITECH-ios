@@ -217,7 +217,7 @@
                                                                       self.view.frame.size.width, self.view.frame.size.height / 2)];
 
     self.separatorCalendar = [[UIView alloc] initWithFrame:CGRectMake(34, self.listCalendar.frame.origin.y, 3, self.listCalendar.frame.size.height)];
-    self.separatorCalendar.backgroundColor = [UIColor grayColor];
+    self.separatorCalendar.backgroundColor = [UIColor colorWithRed:0 green:118 / 255.0 blue:255 / 255.0 alpha:1];
     self.listCalendar.backgroundColor = [UIColor clearColor];
     self.listCalendar.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.listCalendar.dataSource = self;
@@ -273,7 +273,7 @@
         [self.listMessages reloadData];
     }
     if (dataStatUser) {
-        self.currentStatUser = [NSKeyedUnarchiver unarchiveObjectWithData:dataUser];
+        self.currentStatUser = [NSKeyedUnarchiver unarchiveObjectWithData:dataStatUser];
         [self.statView setLog:(NSInteger)self.currentStatUser.activeLog];
         [self.statView setCredits:self.currentStatUser.progressCredits];
     }

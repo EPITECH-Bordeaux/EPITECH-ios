@@ -22,17 +22,31 @@
 @implementation ConnectionController
 
 - (void) makeRequestConnection {
+    DashBoardController *dashBoardController = [[DashBoardController alloc] init];
+    
+    if ([self.loginTextField.text isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:@"login"]] &&
+        [self.loginTextField.text isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:@"password"]] &&
+        [[NSUserDefaults standardUserDefaults] objectForKey:@"token"]) {
+        dashBoardController.token = [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+        [self presentViewController:dashBoardController animated:true completion:nil];
+        return ;
+    }
+    
 //    DashBoardController *dashBoardController = [[DashBoardController alloc] init];
 //    dashBoardController.token = @"salut";
 //    [self presentViewController:dashBoardController animated:true completion:nil];
 //    return ;
-//    NSDictionary *params = @{@"login":self.loginTextField.text, @"password":self.passwordTextField.text};
-    NSDictionary *params = @{@"login":@"robert_r", @"password":@"fl5>[dWn"};
+    NSDictionary *params = @{@"login":self.loginTextField.text, @"password":self.passwordTextField.text};
+    //NSDictionary *params = @{@"login":@"robert_r", @"password":@"fl5>[dWn"};
 
     [NetworkRequest POST:LOGIN_ROUTE parameters:params
          blockCompletion:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSDictionary *jsonDict = (NSDictionary *)responseObject;
-             DashBoardController *dashBoardController = [[DashBoardController alloc] init];
+             
+             [[NSUserDefaults standardUserDefaults] setObject:self.loginTextField.text forKey:@"login"];
+             [[NSUserDefaults standardUserDefaults] setObject:self.passwordTextField.text forKey:@"password"];
+             [[NSUserDefaults standardUserDefaults] setObject:[jsonDict objectForKey:@"token"] forKey:@"token"];
+             
              dashBoardController.token = [jsonDict objectForKey:@"token"];
              [self presentViewController:dashBoardController animated:true completion:nil];
          } andErrorCompletion:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -76,6 +90,12 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self initForm];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"login"]) {
+        self.loginTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"login"];
+    }
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"password"]) {
+        self.passwordTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

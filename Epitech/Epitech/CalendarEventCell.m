@@ -50,7 +50,7 @@
     [self.titleEvent sizeToFit];
     
     self.clock = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 50, 50)];
-    self.clock.backgroundColor = [UIColor grayColor];
+    self.clock.backgroundColor = [UIColor colorWithRed:0 green:118 / 255.0 blue:255 / 255.0 alpha:1];
     self.clock.layer.cornerRadius = 25;
     
     self.module = [[UITextView alloc] initWithFrame:CGRectMake(70, self.titleEvent.frame.size.height + 10, self.titleEvent.frame.size.width, 20)];

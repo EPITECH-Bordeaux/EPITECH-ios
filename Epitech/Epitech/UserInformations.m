@@ -32,7 +32,6 @@
     self.login = [decoder decodeObjectForKey:@"login"];
     self.urlPicture = [decoder decodeObjectForKey:@"urlPicture"];
     self.schoolYear = [decoder decodeIntegerForKey:@"schoolYear"];
-    //self.statUser = [decoder decodeObjectForKey:@"statUser"];
     
     return self;
 }
@@ -42,7 +41,6 @@
     [encoder encodeObject:self.login forKey:@"login"];
     [encoder encodeObject:self.urlPicture forKey:@"urlPicture"];
     [encoder encodeInteger:self.schoolYear forKey:@"schoolYear"];
-    //[encoder encodeObject:self.statUser forKey:@"statUser"];
 }
 
 
