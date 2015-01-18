@@ -15,8 +15,7 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *urlPicture;
 @property (nonatomic, assign) NSInteger schoolYear;
-@property (nonatomic, strong) CurrentStatUser *statUser;
 
-- (instancetype) initWithJSONDate:(NSDictionary *)jsonData currentInformationStat:(NSDictionary *)statInformations;
+- (instancetype) initWithJSONDate:(NSDictionary *)jsonData;
 
 @end

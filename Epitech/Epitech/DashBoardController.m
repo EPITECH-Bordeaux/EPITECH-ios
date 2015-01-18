@@ -26,6 +26,7 @@
 
 @property (nonatomic, strong) UISegmentedControl *segmentControlList;
 @property (nonatomic, strong) UserInformations *userInformations;
+@property (nonatomic, strong) CurrentStatUser *currentStatUser;
 @property (nonatomic, strong) PictureProfile *pictureProfile;
 @property (nonatomic, strong) UILabel *login;
 @property (nonatomic, strong) UserStatView *statView;
@@ -139,13 +140,12 @@
     [NetworkRequest POST:INFOS_ROUTE parameters:params
          blockCompletion:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSDictionary *jsonDict = (NSDictionary *) responseObject;
-             self.userInformations = [[UserInformations alloc] initWithJSONDate:[jsonDict objectForKey:@"infos"]
-                                                         currentInformationStat:[jsonDict objectForKey:@"current"]];
+             self.userInformations = [[UserInformations alloc] initWithJSONDate:[jsonDict objectForKey:@"infos"]];
+             self.currentStatUser = [[CurrentStatUser alloc] initWithJSONDate:[jsonDict objectForKey:@"current"]];
              NSLog(@"picture : %@", self.userInformations.urlPicture);
-             NSLog(@"current log %f", self.userInformations.statUser.activeLog);
-             
-             [self.statView setLog:(NSInteger)self.userInformations.statUser.activeLog];
-             [self.statView setCredits:self.userInformations.statUser.progressCredits];
+             NSLog(@"current log %f", self.currentStatUser.activeLog);
+             [self.statView setLog:(NSInteger)self.currentStatUser.activeLog];
+             [self.statView setCredits:self.currentStatUser.progressCredits];
              self.login.text = self.userInformations.login;
              [ImageDownloader downloadImageWithSizeWithUrlImage:[NSString stringWithFormat:@"https://cdn.local.epitech.eu/userprofil/%@",
                                                                 self.userInformations.urlPicture]
@@ -157,6 +157,7 @@
              
              NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.userInformations];
              [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"userInformations"];
+             [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:self.currentStatUser] forKey:@"currentStatUser"];
              
          } andErrorCompletion:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"%@", operation.responseString);
@@ -250,14 +251,13 @@
     NSData *dataUser = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInformations"];
     NSData *dataCalendar = [[NSUserDefaults standardUserDefaults] objectForKey:@"calendar"];
     NSData *dataMessages = [[NSUserDefaults standardUserDefaults] objectForKey:@"messages"];
+    NSData *dataStatUser = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentStatUser"];
 
     if (dataUser) {
-        UserInformations *userInformations = [NSKeyedUnarchiver unarchiveObjectWithData:dataUser];
-//        [self.statView setLog:(NSInteger)userInformations.statUser.activeLog];
-//        [self.statView setCredits:userInformations.statUser.progressCredits];
-        self.login.text = userInformations.login;
+        self.userInformations = [NSKeyedUnarchiver unarchiveObjectWithData:dataUser];
+        self.login.text = self.userInformations.login;
         [ImageDownloader downloadImageWithSizeWithUrlImage:[NSString stringWithFormat:@"https://cdn.local.epitech.eu/userprofil/%@",
-                                                            userInformations.urlPicture]
+                                                            self.userInformations.urlPicture]
                                                  sizeImage:self.pictureProfile.frame.size completionBlock:^(UIImage *image) {
                                                      dispatch_async(dispatch_get_main_queue(), ^{
                                                          [self.pictureProfile setImage:image];
@@ -271,6 +271,11 @@
     if (dataMessages) {
         self.messages = [[NSMutableArray alloc] initWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:dataMessages]];
         [self.listMessages reloadData];
+    }
+    if (dataStatUser) {
+        self.currentStatUser = [NSKeyedUnarchiver unarchiveObjectWithData:dataUser];
+        [self.statView setLog:(NSInteger)self.currentStatUser.activeLog];
+        [self.statView setCredits:self.currentStatUser.progressCredits];
     }
 }
 

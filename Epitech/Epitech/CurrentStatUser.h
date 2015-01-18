@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CurrentStatUser : NSObject
+@interface CurrentStatUser : NSObject <NSCoding>
 
 @property (nonatomic, assign) CGFloat activeLog;
 @property (nonatomic, assign) CGFloat logMin;
