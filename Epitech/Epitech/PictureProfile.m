@@ -24,7 +24,7 @@
     self.pictureView.clipsToBounds = true;
     self.pictureView.layer.cornerRadius = (frame.size.width - 10) / 2;
     self.pictureView.contentMode = UIViewContentModeScaleAspectFill;
-    self.pictureView.backgroundColor = [UIColor redColor];
+    self.pictureView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.pictureView];
 }
 

@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UILabel *labelCredits;
 @property (nonatomic, strong) UILabel *titleLog;
 @property (nonatomic, strong) UILabel *titleCredits;
+@property (nonatomic, strong) UIButton *buttonDetail;
 @end
 
 @implementation UserStatView
@@ -65,6 +66,14 @@
     self.labelCredits.frame = CGRectMake(frame.size.width / 3, self.labelCredits.frame.origin.y, self.labelCredits.frame.size.width, self.labelCredits.frame.size.height);
     self.titleCredits.frame = CGRectMake(frame.size.width / 3, self.titleCredits.frame.origin.y, self.titleCredits.frame.size.width, self.titleCredits.frame.size.height);
     
+    self.buttonDetail = [[UIButton alloc] initWithFrame:CGRectMake(frame.size.width - 60, frame.size.height - 25, 50, 20)];
+    [self.buttonDetail setTitle:@"infos" forState:UIControlStateNormal];
+    self.buttonDetail.layer.borderWidth = 1;
+    self.buttonDetail.layer.cornerRadius = 5;
+    self.buttonDetail.titleLabel.font = [UIFont boldSystemFontOfSize:11];
+    [self.buttonDetail setTitleColor:[UIColor colorWithRed:0 green:118 / 255.0 blue:255 / 255.0 alpha:1] forState:UIControlStateNormal];
+    self.buttonDetail.layer.borderColor = [[UIColor colorWithRed:0 green:118 / 255.0 blue:255 / 255.0 alpha:1] CGColor];
+    
     
     [self addSubview:self.logImage];
     [self addSubview:self.creditsImage];
@@ -72,6 +81,7 @@
     [self addSubview:self.titleLog];
     [self addSubview:self.labelCredits];
     [self addSubview:self.titleCredits];
+    [self addSubview:self.buttonDetail];
 }
 
 - (instancetype) initWithFrame:(CGRect)frame {

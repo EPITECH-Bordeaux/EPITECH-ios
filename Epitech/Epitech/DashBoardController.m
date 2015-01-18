@@ -27,6 +27,7 @@
 @property (nonatomic, strong) UISegmentedControl *segmentControlList;
 @property (nonatomic, strong) UserInformations *userInformations;
 @property (nonatomic, strong) PictureProfile *pictureProfile;
+@property (nonatomic, strong) UILabel *login;
 @property (nonatomic, strong) UserStatView *statView;
 
 @property (nonatomic, strong) NSMutableArray *calendarEvent;
@@ -114,6 +115,13 @@
     self.pictureProfile = [[PictureProfile alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - sizePictureProfile / 2, 44,
                                                                            sizePictureProfile, sizePictureProfile)];
     
+    self.login = [[UILabel alloc] initWithFrame:CGRectMake(0, self.pictureProfile.frame.origin.y +
+                                                           self.pictureProfile.frame.size.height,
+                                                           self.view.frame.size.width, 20)];
+    self.login.textAlignment = NSTextAlignmentCenter;
+    self.login.textColor = [UIColor blackColor];
+    self.login.font = [UIFont italicSystemFontOfSize:12];
+    self.login.text = @"";
     
     self.statView = [[UserStatView alloc] initWithFrame:CGRectMake(0, self.pictureProfile.frame.origin.y +
                                                                    self.pictureProfile.frame.size.height + 10,
@@ -122,6 +130,7 @@
     
     [self.view addSubview:self.pictureProfile];
     [self.view addSubview:self.statView];
+    [self.view addSubview:self.login];
 }
 
 - (void) makeRequestDashBoardInfos {
@@ -137,7 +146,7 @@
              
              [self.statView setLog:(NSInteger)self.userInformations.statUser.activeLog];
              [self.statView setCredits:self.userInformations.statUser.progressCredits];
-             
+             self.login.text = self.userInformations.login;
              [ImageDownloader downloadImageWithSizeWithUrlImage:[NSString stringWithFormat:@"https://cdn.local.epitech.eu/userprofil/%@",
                                                                 self.userInformations.urlPicture]
                                                      sizeImage:self.pictureProfile.frame.size completionBlock:^(UIImage *image) {
