@@ -30,4 +30,26 @@
     return (self);
 }
 
+- (id)initWithCoder:(NSCoder *)decoder {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    
+    self.title = [decoder decodeObjectForKey:@"title"];
+    self.content = [decoder decodeObjectForKey:@"content"];
+    self.date = [decoder decodeObjectForKey:@"date"];
+    self.user = [decoder decodeObjectForKey:@"user"];
+    self.pictureUser = [decoder decodeObjectForKey:@"pictureUser"];
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.title forKey:@"title"];
+    [encoder encodeObject:self.content forKey:@"content"];
+    [encoder encodeObject:self.date forKey:@"date"];
+    [encoder encodeObject:self.user forKey:@"user"];
+    [encoder encodeObject:self.pictureUser forKey:@"pictureUser"];
+}
+
 @end

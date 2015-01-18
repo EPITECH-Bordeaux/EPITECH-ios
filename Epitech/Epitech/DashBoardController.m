@@ -154,6 +154,10 @@
                     [self.pictureProfile setImage:image];
                 });
             }];
+             
+             NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.userInformations];
+             [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"userInformations"];
+             
          } andErrorCompletion:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"%@", operation.responseString);
              NSLog(@"Error: %@", error);
@@ -171,6 +175,8 @@
                 [self.messages addObject:[[NotificationMessage alloc] initWithJSONDate:currentMessage]];
             }
             [self.listMessages reloadData];
+            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.messages];
+            [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"messages"];
         } andErrorCompletion:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"%@", operation.responseString);
             NSLog(@"Error: %@", error);
@@ -195,6 +201,8 @@
              }
              self.calendarEvent = (NSMutableArray *)[[(NSArray *)self.calendarEvent reverseObjectEnumerator] allObjects];
              [self.listCalendar reloadData];
+             NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.calendarEvent];
+             [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"calendar"];
          } andErrorCompletion:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"%@", operation.responseString);
              NSLog(@"Error: %@", error);
@@ -238,11 +246,40 @@
     [self.view addSubview:separatorTop];
 }
 
+- (void) unarchiveDataUser {
+    NSData *dataUser = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInformations"];
+    NSData *dataCalendar = [[NSUserDefaults standardUserDefaults] objectForKey:@"calendar"];
+    NSData *dataMessages = [[NSUserDefaults standardUserDefaults] objectForKey:@"messages"];
+
+    if (dataUser) {
+        UserInformations *userInformations = [NSKeyedUnarchiver unarchiveObjectWithData:dataUser];
+//        [self.statView setLog:(NSInteger)userInformations.statUser.activeLog];
+//        [self.statView setCredits:userInformations.statUser.progressCredits];
+        self.login.text = userInformations.login;
+        [ImageDownloader downloadImageWithSizeWithUrlImage:[NSString stringWithFormat:@"https://cdn.local.epitech.eu/userprofil/%@",
+                                                            userInformations.urlPicture]
+                                                 sizeImage:self.pictureProfile.frame.size completionBlock:^(UIImage *image) {
+                                                     dispatch_async(dispatch_get_main_queue(), ^{
+                                                         [self.pictureProfile setImage:image];
+                                                     });
+                                                 }];
+    }
+    if (dataCalendar) {
+        self.calendarEvent = [[NSMutableArray alloc] initWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:dataCalendar]];
+        [self.listCalendar reloadData];
+    }
+    if (dataMessages) {
+        self.messages = [[NSMutableArray alloc] initWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:dataMessages]];
+        [self.listMessages reloadData];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self initDashboardInformationUI];
     [self initTableViewDashBoard];
+    [self unarchiveDataUser];
     [self makeRequestDashBoardInfos];
     [self makeRequestCalendar];
     [self makeRequestMessages];

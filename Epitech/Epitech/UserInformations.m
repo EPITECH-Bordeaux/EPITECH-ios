@@ -23,4 +23,28 @@
     return (self);
 }
 
+- (id)initWithCoder:(NSCoder *)decoder {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    
+    self.title = [decoder decodeObjectForKey:@"title"];
+    self.login = [decoder decodeObjectForKey:@"login"];
+    self.urlPicture = [decoder decodeObjectForKey:@"urlPicture"];
+    self.schoolYear = [decoder decodeIntegerForKey:@"schoolYear"];
+    //self.statUser = [decoder decodeObjectForKey:@"statUser"];
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.title forKey:@"title"];
+    [encoder encodeObject:self.login forKey:@"login"];
+    [encoder encodeObject:self.urlPicture forKey:@"urlPicture"];
+    [encoder encodeInteger:self.schoolYear forKey:@"schoolYear"];
+    //[encoder encodeObject:self.statUser forKey:@"statUser"];
+}
+
+
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CurrentStatUser.h"
 
-@interface UserInformations : NSObject
+@interface UserInformations : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *login;
 @property (nonatomic, strong) NSString *title;

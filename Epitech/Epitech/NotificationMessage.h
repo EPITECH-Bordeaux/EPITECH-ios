@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NotificationMessage : NSObject
+@interface NotificationMessage : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *content;
