@@ -17,13 +17,17 @@
 #import "CalendarEventCell.h"
 #import "NotificationMessage.h"
 #import "MessageCell.h"
+#import "UserStatView.h"
 
 @interface DashBoardController ()
 @property (nonatomic, strong) UITableView *listCalendar;
 @property (nonatomic, strong) UITableView *listMessages;
+@property (nonatomic, strong) UIView *separatorCalendar;
+
 @property (nonatomic, strong) UISegmentedControl *segmentControlList;
 @property (nonatomic, strong) UserInformations *userInformations;
 @property (nonatomic, strong) PictureProfile *pictureProfile;
+@property (nonatomic, strong) UserStatView *statView;
 
 @property (nonatomic, strong) NSMutableArray *calendarEvent;
 @property (nonatomic, strong) NSMutableArray *messages;
@@ -59,6 +63,7 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:REUSE_IDENTIFIER_CALENDAR_CELL];
         if (!cell) {
             cell = [[CalendarEventCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:REUSE_IDENTIFIER_CALENDAR_CELL];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             [((CalendarEventCell *)cell) initContentCell:((CalendarEvent *)[self.calendarEvent objectAtIndex:indexPath.row])];
         }
         [((CalendarEventCell *)cell) setContent:((CalendarEvent *)[self.calendarEvent objectAtIndex:indexPath.row])];
@@ -68,6 +73,7 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:REUSE_IDENTIFIER_MESSAGE_CELL];
         if (!cell) {
             cell = [[MessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:REUSE_IDENTIFIER_MESSAGE_CELL];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             [((MessageCell *)cell) initContentCell:((NotificationMessage *)[self.messages objectAtIndex:indexPath.row])];
         }
         [((MessageCell *)cell) setContent:((NotificationMessage *)[self.messages objectAtIndex:indexPath.row])];
@@ -79,28 +85,43 @@
 - (void) changeSegment {
     POPSpringAnimation *springAnimationCalendar = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPositionX];
     POPSpringAnimation *springAnimationMessages = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPositionX];
+    POPSpringAnimation *springAnimationSeparator = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPositionX];
 
     springAnimationCalendar.springBounciness = 10.f;
     springAnimationMessages.springBounciness = 10.f;
+    //springAnimationSeparator.springBounciness = 0;
     springAnimationCalendar.dynamicsFriction = 20;
     springAnimationMessages.dynamicsFriction = 20;
+    //springAnimationSeparator.dynamicsFriction = 0;
+    
     if (self.segmentControlList.selectedSegmentIndex == 0) {
         springAnimationCalendar.toValue = @(self.view.frame.size.width / 2);
         springAnimationMessages.toValue = @(self.view.frame.size.width / 2 + self.view.frame.size.width);
+        springAnimationSeparator.toValue = @(35);
     }
     else {
         springAnimationCalendar.toValue = @(-(self.view.frame.size.width / 2));
+        springAnimationSeparator.toValue = @(-35);
         springAnimationMessages.toValue = @(self.view.frame.size.width / 2);
     }
     [self.listMessages.layer pop_addAnimation:springAnimationMessages forKey:@"springMessage1"];
+    [self.separatorCalendar.layer pop_addAnimation:springAnimationSeparator forKey:@"separator"];
     [self.listCalendar.layer pop_addAnimation:springAnimationCalendar forKey:@"springMessage2"];
 }
 
 - (void) initDashboardInformationUI {
     CGFloat sizePictureProfile = ([UIScreen mainScreen].bounds.size.height / 2 - 94) / 2;
-    self.pictureProfile = [[PictureProfile alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - sizePictureProfile / 2, 74,
+    self.pictureProfile = [[PictureProfile alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - sizePictureProfile / 2, 44,
                                                                            sizePictureProfile, sizePictureProfile)];
+    
+    
+    self.statView = [[UserStatView alloc] initWithFrame:CGRectMake(0, self.pictureProfile.frame.origin.y +
+                                                                   self.pictureProfile.frame.size.height + 10,
+                                                                   self.view.frame.size.width, (self.view.frame.size.height / 2 - 45) -
+                                                                   (self.pictureProfile.frame.origin.y + self.pictureProfile.frame.size.height + 10))];
+    
     [self.view addSubview:self.pictureProfile];
+    [self.view addSubview:self.statView];
 }
 
 - (void) makeRequestDashBoardInfos {
@@ -114,7 +135,10 @@
              NSLog(@"picture : %@", self.userInformations.urlPicture);
              NSLog(@"current log %f", self.userInformations.statUser.activeLog);
              
-            [ImageDownloader downloadImageWithSizeWithUrlImage:[NSString stringWithFormat:@"https://cdn.local.epitech.eu/userprofil/%@",
+             [self.statView setLog:(NSInteger)self.userInformations.statUser.activeLog];
+             [self.statView setCredits:self.userInformations.statUser.progressCredits];
+             
+             [ImageDownloader downloadImageWithSizeWithUrlImage:[NSString stringWithFormat:@"https://cdn.local.epitech.eu/userprofil/%@",
                                                                 self.userInformations.urlPicture]
                                                      sizeImage:self.pictureProfile.frame.size completionBlock:^(UIImage *image) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -173,7 +197,9 @@
     self.listMessages = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width, self.view.frame.size.height / 2,
                                                                       self.view.frame.size.width, self.view.frame.size.height / 2)];
 
-    
+    self.separatorCalendar = [[UIView alloc] initWithFrame:CGRectMake(34, self.listCalendar.frame.origin.y, 3, self.listCalendar.frame.size.height)];
+    self.separatorCalendar.backgroundColor = [UIColor grayColor];
+    self.listCalendar.backgroundColor = [UIColor clearColor];
     self.listCalendar.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.listCalendar.dataSource = self;
     self.listCalendar.delegate = self;
@@ -181,6 +207,7 @@
     self.listMessages.delegate = self;
     self.listCalendar.tag = TAG_LIST_CALENDAR_EVENT;
     self.listMessages.tag = TAG_LIST_MESSAGES;
+    
     self.segmentControlList = [[UISegmentedControl alloc] initWithItems:@[@"Ma journée", @"Messages"]];
     self.segmentControlList.frame = CGRectMake(10, self.view.frame.size.height / 2 - 35, self.view.frame.size.width - 20, 25);
     self.segmentControlList.selectedSegmentIndex = 0;
@@ -188,13 +215,17 @@
     [self.view addSubview:self.segmentControlList];
     
     
-    UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
-    navigationBar.backgroundColor = [UIColor whiteColor];
-    
-    
-    [self.view addSubview:navigationBar];
+    UIView *separatorBottom = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height / 2, self.view.frame.size.width, 0.5)];
+    separatorBottom.backgroundColor = [UIColor grayColor];
+
+    UIView *separatorTop = [[UIView alloc] initWithFrame:CGRectMake(0, self.segmentControlList.frame.origin.y - 10, self.view.frame.size.width, 0.5)];
+    separatorTop.backgroundColor = [UIColor grayColor];
+
     [self.view addSubview:self.listMessages];
+    [self.view addSubview:self.separatorCalendar];
     [self.view addSubview:self.listCalendar];
+    [self.view addSubview:separatorBottom];
+    [self.view addSubview:separatorTop];
 }
 
 - (void)viewDidLoad {

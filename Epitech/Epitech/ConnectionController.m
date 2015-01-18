@@ -22,6 +22,10 @@
 @implementation ConnectionController
 
 - (void) makeRequestConnection {
+//    DashBoardController *dashBoardController = [[DashBoardController alloc] init];
+//    dashBoardController.token = @"salut";
+//    [self presentViewController:dashBoardController animated:true completion:nil];
+//    return ;
 //    NSDictionary *params = @{@"login":self.loginTextField.text, @"password":self.passwordTextField.text};
     NSDictionary *params = @{@"login":@"robert_r", @"password":@"fl5>[dWn"};
 

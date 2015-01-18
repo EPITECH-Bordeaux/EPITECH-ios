@@ -16,7 +16,6 @@
 @property (nonatomic, strong) UIView *clock;
 @property (nonatomic, strong) UILabel *date;
 @property (nonatomic, strong) UILabel *hour;
-@property (nonatomic, strong) UILabel *duree;
 @end
 
 @implementation CalendarEventCell
@@ -69,19 +68,13 @@
     self.hour.textColor = [UIColor whiteColor];
     self.hour.textAlignment = NSTextAlignmentCenter;
     self.hour.font = [UIFont boldSystemFontOfSize:10];
-
-    self.duree = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width / 2, self.module.frame.origin.y,
-                                                           [UIScreen mainScreen].bounds.size.width / 2, 10)];
-    self.duree.textAlignment = NSTextAlignmentRight;
-    self.duree.textColor = [UIColor grayColor];
-    self.duree.font = [UIFont boldSystemFontOfSize:12];
     
     [self.clock addSubview:self.hour];
     [self.contentView addSubview:self.separator];
     [self.contentView addSubview:self.clock];
     [self.contentView addSubview:self.titleEvent];
     [self.contentView addSubview:self.module];
-    [self.contentView addSubview:self.duree];
+    self.backgroundColor = [UIColor clearColor];
 }
 
 - (void) setContent:(CalendarEvent *)event {
@@ -90,12 +83,11 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDate *dateStart = [dateFormatter dateFromString:event.start];
-    NSDate *dateEnd = [dateFormatter dateFromString:event.start];
+    NSDate *dateEnd = [dateFormatter dateFromString:event.end];
     
     Tempo *dateStartTempo = [[Tempo alloc] initWithDate:dateStart];
     Tempo *dateEndTempo = [[Tempo alloc] initWithDate:dateEnd];
     self.hour.text = [dateStartTempo formatDate:@"HH::mm"];
-    self.duree.text = [dateEndTempo diffHour:dateStartTempo];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

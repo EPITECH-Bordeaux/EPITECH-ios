@@ -33,6 +33,7 @@
 		BBC741FD1A65BA0D00865079 /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC741FA1A65BA0D00865079 /* NSString+TextDirectionality.m */; };
 		BBC742011A65BD5400865079 /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC742001A65BD5400865079 /* ZFRippleButton.swift */; };
 		BBFB3E821A6A6A62002C8474 /* tempo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFB3E811A6A6A62002C8474 /* tempo.swift */; };
+		BBFC3E0D1A6BD45900EE058F /* UserStatView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFC3E0C1A6BD45900EE058F /* UserStatView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		BBC742001A65BD5400865079 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
 		BBC742021A65C36000865079 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		BBFB3E811A6A6A62002C8474 /* tempo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempo.swift; sourceTree = "<group>"; };
+		BBFC3E0B1A6BD45900EE058F /* UserStatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserStatView.h; sourceTree = "<group>"; };
+		BBFC3E0C1A6BD45900EE058F /* UserStatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserStatView.m; sourceTree = "<group>"; };
 		D797391357664DCAC83CCA2C /* Pods-EpitechTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpitechTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EpitechTests/Pods-EpitechTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E4E2E3E659001D673C4841FF /* Pods-EpitechTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpitechTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EpitechTests/Pods-EpitechTests.release.xcconfig"; sourceTree = "<group>"; };
 		F2767F0DA9D49B366A73B662 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -280,6 +283,8 @@
 				BB1CB3281A6979EA00E619BA /* CalendarEventCell.m */,
 				BB1CB32D1A69819700E619BA /* MessageCell.h */,
 				BB1CB32E1A69819700E619BA /* MessageCell.m */,
+				BBFC3E0B1A6BD45900EE058F /* UserStatView.h */,
+				BBFC3E0C1A6BD45900EE058F /* UserStatView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -479,6 +484,7 @@
 				BB5102CE1A68342D0057709E /* UITextFieldForm.m in Sources */,
 				BBC741FD1A65BA0D00865079 /* NSString+TextDirectionality.m in Sources */,
 				BBBE8C461A65AFA200D35180 /* AppDelegate.m in Sources */,
+				BBFC3E0D1A6BD45900EE058F /* UserStatView.m in Sources */,
 				BB1CB32C1A697E0200E619BA /* NotificationMessage.m in Sources */,
 				BB0A2DB81A691B500045F56B /* CurrentStatUser.m in Sources */,
 				BBC741F21A65B3D000865079 /* NetworkRequest.m in Sources */,
