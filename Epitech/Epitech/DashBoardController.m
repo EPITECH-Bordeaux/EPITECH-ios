@@ -18,6 +18,7 @@
 #import "NotificationMessage.h"
 #import "MessageCell.h"
 #import "UserStatView.h"
+#import "MarkController.h"
 
 @interface DashBoardController ()
 @property (nonatomic, strong) UITableView *listCalendar;
@@ -142,8 +143,6 @@
              NSDictionary *jsonDict = (NSDictionary *) responseObject;
              self.userInformations = [[UserInformations alloc] initWithJSONDate:[jsonDict objectForKey:@"infos"]];
              self.currentStatUser = [[CurrentStatUser alloc] initWithJSONDate:[jsonDict objectForKey:@"current"]];
-             NSLog(@"picture : %@", self.userInformations.urlPicture);
-             NSLog(@"current log %f", self.currentStatUser.activeLog);
              [self.statView setLog:(NSInteger)self.currentStatUser.activeLog];
              [self.statView setCredits:self.currentStatUser.progressCredits];
              self.login.text = self.userInformations.login;
@@ -157,8 +156,7 @@
              
              NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.userInformations];
              [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"userInformations"];
-             [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:self.currentStatUser] forKey:@"currentStatUser"];
-             
+             [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:self.currentStatUser] forKey:@"currentStatUser"];             
          } andErrorCompletion:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"%@", operation.responseString);
              NSLog(@"Error: %@", error);
@@ -172,7 +170,7 @@
         blockCompletion:^(AFHTTPRequestOperation *operation, id responseObject) {
             self.messages = [[NSMutableArray alloc] init];
             for (NSDictionary *currentMessage in (NSArray *)responseObject) {
-                NSLog(@"current event %@", currentMessage);
+                //NSLog(@"current event %@", currentMessage);
                 [self.messages addObject:[[NotificationMessage alloc] initWithJSONDate:currentMessage]];
             }
             [self.listMessages reloadData];
@@ -227,7 +225,7 @@
     self.listCalendar.tag = TAG_LIST_CALENDAR_EVENT;
     self.listMessages.tag = TAG_LIST_MESSAGES;
     
-    self.segmentControlList = [[UISegmentedControl alloc] initWithItems:@[@"Ma journée", @"Messages"]];
+    self.segmentControlList = [[UISegmentedControl alloc] initWithItems:@[@"Ma journée", @"Mes messages"]];
     self.segmentControlList.frame = CGRectMake(10, self.view.frame.size.height / 2 - 35, self.view.frame.size.width - 20, 25);
     self.segmentControlList.selectedSegmentIndex = 0;
     [self.segmentControlList addTarget:self action:@selector(changeSegment) forControlEvents:UIControlEventValueChanged];
@@ -245,6 +243,20 @@
     [self.view addSubview:self.listCalendar];
     [self.view addSubview:separatorBottom];
     [self.view addSubview:separatorTop];
+}
+
+- (void) transitionControllerMark {
+    MarkController *controller = [[MarkController alloc] init];
+    controller.token = self.token;
+    [self presentViewController:controller animated:true completion:nil];
+}
+
+- (void) initButtonTransitionController {
+    UIButton *buttonMark = [[UIButton alloc] initWithFrame:CGRectMake(10, 30, 30, 30)];
+    [buttonMark setTintColor:[UIColor whiteColor]];
+    [buttonMark setImage:[UIImage imageNamed:@"mark"] forState:UIControlStateNormal];
+    [self.view addSubview:buttonMark];
+    [buttonMark addTarget:self action:@selector(transitionControllerMark) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) unarchiveDataUser {
@@ -285,6 +297,7 @@
     [self initDashboardInformationUI];
     [self initTableViewDashBoard];
     [self unarchiveDataUser];
+    [self initButtonTransitionController];
     [self makeRequestDashBoardInfos];
     [self makeRequestCalendar];
     [self makeRequestMessages];
