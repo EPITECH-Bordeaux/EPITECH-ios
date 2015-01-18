@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MarkController : UIViewController
+@interface MarkController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSString *token;
 

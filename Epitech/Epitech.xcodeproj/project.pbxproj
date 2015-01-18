@@ -36,6 +36,7 @@
 		BBFC3E0D1A6BD45900EE058F /* UserStatView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFC3E0C1A6BD45900EE058F /* UserStatView.m */; };
 		BBFC3E101A6C52A800EE058F /* MarkController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFC3E0F1A6C52A800EE058F /* MarkController.m */; };
 		BBFC3E131A6C552B00EE058F /* Mark.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFC3E121A6C552B00EE058F /* Mark.m */; };
+		BBFC3E161A6C582400EE058F /* MarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFC3E151A6C582400EE058F /* MarkCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,8 @@
 		BBFC3E0F1A6C52A800EE058F /* MarkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkController.m; sourceTree = "<group>"; };
 		BBFC3E111A6C552B00EE058F /* Mark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mark.h; sourceTree = "<group>"; };
 		BBFC3E121A6C552B00EE058F /* Mark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mark.m; sourceTree = "<group>"; };
+		BBFC3E141A6C582400EE058F /* MarkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkCell.h; sourceTree = "<group>"; };
+		BBFC3E151A6C582400EE058F /* MarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkCell.m; sourceTree = "<group>"; };
 		D797391357664DCAC83CCA2C /* Pods-EpitechTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpitechTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EpitechTests/Pods-EpitechTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E4E2E3E659001D673C4841FF /* Pods-EpitechTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpitechTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EpitechTests/Pods-EpitechTests.release.xcconfig"; sourceTree = "<group>"; };
 		F2767F0DA9D49B366A73B662 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -295,6 +298,8 @@
 				BB1CB32E1A69819700E619BA /* MessageCell.m */,
 				BBFC3E0B1A6BD45900EE058F /* UserStatView.h */,
 				BBFC3E0C1A6BD45900EE058F /* UserStatView.m */,
+				BBFC3E141A6C582400EE058F /* MarkCell.h */,
+				BBFC3E151A6C582400EE058F /* MarkCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -501,6 +506,7 @@
 				BBC741F21A65B3D000865079 /* NetworkRequest.m in Sources */,
 				BB0A2DBB1A69205A0045F56B /* PictureProfile.m in Sources */,
 				BBFC3E101A6C52A800EE058F /* MarkController.m in Sources */,
+				BBFC3E161A6C582400EE058F /* MarkCell.m in Sources */,
 				BB1CB3291A6979EA00E619BA /* CalendarEventCell.m in Sources */,
 				BB1CB3261A69772000E619BA /* CalendarEvent.m in Sources */,
 				BBC741FB1A65BA0D00865079 /* JVFloatLabeledTextField.m in Sources */,

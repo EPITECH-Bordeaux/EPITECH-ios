@@ -17,4 +17,6 @@
 @property (nonatomic, strong) NSString *from;
 @property (nonatomic, assign) NSInteger note;
 
+- (instancetype) initWithJSONDate:(NSDictionary *)jsonData;
+
 @end
